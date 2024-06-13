@@ -25,7 +25,7 @@ namespace Catalog.API.Products.CreateProduct
 
             // 2- save the database
             session.Store(product);
-            await session.SaveChangesAsync();
+            await session.SaveChangesAsync(cancellationToken);
 
             // 3- return CreateProductResult result
             return new CreateProductResult(product.Id);
