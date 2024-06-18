@@ -22,7 +22,7 @@ namespace Catalog.API.Data
         {
               new Product()
                 {
-                  Id = new Guid("01902227-efac-47eb-91f7-60cc81be0a35"),
+                  Id = new Guid("01900ee4-0be4-4797-8222-494d7131f325"),
                   Name = "iPhone X",
                   Description = "The iPhone X has a beautiful all-screen design with a Super Retina OLED display. It features a TrueDepth camera system for facial recognition, Animoji, and improved selfies. The rear dual-camera system takes incredible photos and videos.",
                   ImageFile = "iphone-x.jpg",
@@ -42,7 +42,7 @@ namespace Catalog.API.Data
 
                 new Product()
                 {
-                  Id = new Guid("C1234567-89AB-CDEF-GHIJ-KLmnopqrstuvwx"),
+                  Id = new Guid("01900ee4-0be6-4797-8332-494d7131f325"),
                   Name = "Google Pixel 6 Pro",
                   Description = "The Google Pixel 6 Pro is a great phone for anyone who wants a powerful camera, a clean software experience, and long battery life. It has a unique design with a camera bar on the back, and a large, smooth display.",
                   ImageFile = "google-pixel-6-pro.jpg",
@@ -51,7 +51,7 @@ namespace Catalog.API.Data
                 },
                 new Product()
                 {
-                  Id = new Guid("01902227-efac-47eb-91f7-60cc81be0a35"),
+                  Id = new Guid("01900ee4-0be4-4797-8332-594d7131f325"),
                   Name = "Wireless Noise Cancelling Headphones",
                   Description = "Immerse yourself in your music or shut out the world with these comfortable wireless headphones featuring active noise cancellation technology.",
                   ImageFile = "product-2.jpg",
@@ -61,7 +61,7 @@ namespace Catalog.API.Data
 
                 new Product()
                 {
-                  Id = new Guid("7F4A2C8A-8A8B-44A9-89F7-C2C2702D89D9"),
+                  Id = new Guid("01911ee4-0be4-4797-8332-494d7131f325"),
                   Name = "Smart Fitness Watch",
                   Description = "Track your workouts, monitor your sleep, and stay connected with this sleek smartwatch featuring heart rate tracking, GPS, and built-in notifications.",
                   ImageFile = "product-3.jpg",
@@ -71,7 +71,7 @@ namespace Catalog.API.Data
 
                 new Product()
                 {
-                  Id = new Guid("1F8A7C2A-2C81-47D9-A3F2-2C78C2277899"),
+                  Id = new Guid("01901ee4-0be4-4797-8332-494d7131f325"),
                   Name = "High-Performance Laptop",
                   Description = "Power through your work or creative projects with this powerful laptop featuring a high-resolution display, long battery life, and a sleek design.",
                   ImageFile = "product-4.jpg",
@@ -81,7 +81,7 @@ namespace Catalog.API.Data
 
                 new Product()
                 {
-                  Id = new Guid("9B17234D-A2C8-4321-A87B-C237456291BA"),
+                  Id = new Guid("01900ee4-0be4-4797-8332-494d8131f325"),
                   Name = "Mechanical Keyboard",
                   Description = "Experience the satisfying click-clack of a mechanical keyboard, perfect for gamers and writers alike.",
                   ImageFile = "product-5.jpg",
@@ -91,7 +91,7 @@ namespace Catalog.API.Data
 
                 new Product()
                 {
-                  Id = new Guid("F7349C2B-12C3-412D-A456-789012B34CDE"),
+                  Id = new Guid("01900ee4-0be4-4797-8332-494d7131f325"),
                   Name = "Coffee Maker",
                   Description = "Brew your perfect cup of coffee every time with this user-friendly coffee maker featuring programmable settings and a sleek design.",
                   ImageFile = "product-6.jpg",
