@@ -8,12 +8,11 @@ namespace Catalog.API.Products.GetProductById
     public record GetProductByIdResult(Product Product);
 
 
-    internal class GetProductByIdQueryHandler(IDocumentSession session, ILogger<GetProductByIdQueryHandler> logger)
+    internal class GetProductByIdQueryHandler(IDocumentSession session)
         : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>
     {
         public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
         {
-            logger.LogInformation(" GetProductByIdQueryHandler.handle called {@query} ", query);
             //  var product = await session.Query<Product>().Where(p => p.Id == query.id).SingleOrDefaultAsync(cancellationToken);
             var product = await session.LoadAsync<Product>(query.id, cancellationToken);
             if (product is null) {
