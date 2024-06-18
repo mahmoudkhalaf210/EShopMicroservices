@@ -17,13 +17,17 @@ builder.Services.AddMarten(opts => {
     opts.Connection(builder.Configuration.GetConnectionString("Database")!);
 }).UseLightweightSessions();
 
+
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+
+
+
 var app = builder.Build();
 
 // configure the Http request pipeline ==> UseMethod
 
 app.MapCarter();
 
-
-
+app.UseExceptionHandler(options => { });
 
 app.Run();
