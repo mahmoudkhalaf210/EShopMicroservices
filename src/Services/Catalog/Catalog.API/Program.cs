@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // add services to the container
 
 var assembly = typeof(Program).Assembly;
+var connectionDb = builder.Configuration.GetConnectionString("Database");
 
 builder.Services.AddMediatR(config => {
     config.RegisterServicesFromAssembly(assembly);
@@ -18,7 +19,7 @@ builder.Services.AddValidatorsFromAssembly(assembly);
 builder.Services.AddCarter();
 
 builder.Services.AddMarten(opts => {
-    opts.Connection(builder.Configuration.GetConnectionString("Database")!);
+    opts.Connection(connectionDb!);
 }).UseLightweightSessions();
 
 if (builder.Environment.IsDevelopment())
@@ -28,7 +29,8 @@ if (builder.Environment.IsDevelopment())
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 
-builder.Services.AddHealthChecks();
+builder.Services.AddHealthChecks()
+    .AddNpgSql(connectionDb!);
 var app = builder.Build();
 
 // configure the Http request pipeline ==> UseMethod
@@ -37,5 +39,5 @@ app.MapCarter();
 
 app.UseExceptionHandler(options => { });
 
-app.UseHealthChecks("/products");
+app.UseHealthChecks("/health");
 app.Run();
