@@ -28,7 +28,7 @@ if (builder.Environment.IsDevelopment())
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 
-
+builder.Services.AddHealthChecks();
 var app = builder.Build();
 
 // configure the Http request pipeline ==> UseMethod
@@ -37,4 +37,5 @@ app.MapCarter();
 
 app.UseExceptionHandler(options => { });
 
+app.UseHealthChecks("/products");
 app.Run();
