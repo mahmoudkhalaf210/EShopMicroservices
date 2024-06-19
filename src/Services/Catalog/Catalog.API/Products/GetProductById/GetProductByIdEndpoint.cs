@@ -18,7 +18,7 @@ namespace Catalog.API.Products.GetProductById
             
             })
              .WithName("Get Product by ID")
-            .Produces<CreateProductResponse>(statusCode: 201)
+            .Produces<GetProductByIdResponse>(statusCode: 201)
             .ProducesProblem(statusCode: 400)
             .WithSummary("Get Product by ID")
             .WithDescription("Get Product by ID"); 

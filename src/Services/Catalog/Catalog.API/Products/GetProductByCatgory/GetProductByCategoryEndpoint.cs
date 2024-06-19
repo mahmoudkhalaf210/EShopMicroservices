@@ -17,7 +17,7 @@ namespace Catalog.API.Products.GetProductByCatgory
         
             })
              .WithName("Get Product by Category")
-            .Produces<CreateProductResponse>(statusCode: 201)
+            .Produces<GetProductByCategoryResponse>(statusCode: 201)
             .ProducesProblem(statusCode: 400)
             .WithSummary("Get Product by Category")
             .WithDescription("Get Product by Category");
