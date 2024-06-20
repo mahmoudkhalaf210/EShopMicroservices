@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Basket.API.Basket.StoreBasket
 {
-   public record StorebasketRequest(ShoppingCart cart);
+   public record StorebasketRequest(ShoppingCart Cart);
     public record StoreBasketResponse(string UserName);
 
     public class StoreBasketEndpoint : ICarterModule
