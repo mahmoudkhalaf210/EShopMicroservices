@@ -23,11 +23,12 @@ builder.Services.AddMarten(opts =>
 }).UseLightweightSessions();
 
 
+
 builder.Services.AddScoped<IBasketRepositroy, BasketRepositroy>();
-builder.Services.AddScoped<IBasketRepositroy>(provider => {
-    var basketRepostory = provider.GetRequiredService<BasketRepositroy>();
-    return new CachedBasketRepository(basketRepostory, provider.GetRequiredService<IDistributedCache>());
-});
+builder.Services.Decorate<IBasketRepositroy, CachedBasketRepository>();
+
+
+
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 builder.Services.AddCarter();
