@@ -1,5 +1,7 @@
 
 
+using BuildingBlocks.Exceptions.Handler;
+
 var builder = WebApplication.CreateBuilder(args);
 
 var assembly = typeof(Program).Assembly;
@@ -22,6 +24,7 @@ builder.Services.AddMarten(opts =>
 
 
 builder.Services.AddScoped<IBasketRepositroy, BasketRepositroy>();
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 builder.Services.AddCarter();
 
@@ -29,4 +32,5 @@ builder.Services.AddCarter();
 var app = builder.Build();
 
 app.MapCarter();
+app.UseExceptionHandler(options => { });
 app.Run();
