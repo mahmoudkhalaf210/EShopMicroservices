@@ -16,9 +16,11 @@ builder.Services.AddMediatR(config => {
 
 builder.Services.AddValidatorsFromAssembly(assembly);
 
-/*builder.Services.AddMarten(opts => {
+builder.Services.AddMarten(opts =>
+{
     opts.Connection(connectionDb!);
-}).UseLightweightSessions();*/
+    opts.Schema.For<ShoppingCart>().Identity(x => x.UserName);
+}).UseLightweightSessions();
 
 builder.Services.AddCarter();
 

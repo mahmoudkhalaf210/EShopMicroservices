@@ -1,22 +1,33 @@
 ﻿
 namespace Basket.API.Data
 {
-    public class BasketRepositroy : IBasketRepositroy
+    public class BasketRepositroy (IDocumentSession session)
+        : IBasketRepositroy
     {
 
-        public Task<bool> DeleteBasket(string UserName, CancellationToken cancellationToken = default)
+ 
+        public async Task<ShoppingCart> GetBasket(string UserName, CancellationToken cancelationToken = default)
         {
-            throw new NotImplementedException();
+            var basket = await session.LoadAsync<ShoppingCart>(UserName, cancelationToken);
+            if (basket is null) throw new BasketNotFoundException(UserName);
+            return basket;
         }
 
-        public Task<ShoppingCart> GetBasket(string UserName, CancellationToken cancelationToken = default)
+        public async Task<ShoppingCart> StoreBasket(ShoppingCart basket, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            session.Store(basket);
+            await session.SaveChangesAsync(cancellationToken);
+            return basket;
         }
 
-        public Task<ShoppingCart> StoreBasket(ShoppingCart basket, CancellationToken cancellationToken = default)
+        public async Task<bool> DeleteBasket(string UserName, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            session.Delete<ShoppingCart>(UserName);
+            await session.SaveChangesAsync(cancellationToken);  
+            return true;
         }
+
+
+
     }
 }
