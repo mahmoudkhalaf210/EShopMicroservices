@@ -11,6 +11,9 @@ global using Mapster;
 global using MediatR;
 global using Microsoft.Extensions.Caching.Distributed;
 global using System.Text.Json;
+global using BuildingBlocks.Exceptions.Handler;
+global using HealthChecks.UI.Client;
+global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 
 

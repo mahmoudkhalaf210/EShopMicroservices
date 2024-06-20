@@ -1,7 +1,5 @@
 
 
-using BuildingBlocks.Exceptions.Handler;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
