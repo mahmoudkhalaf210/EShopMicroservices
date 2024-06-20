@@ -24,6 +24,10 @@ builder.Services.AddMarten(opts =>
 
 
 builder.Services.AddScoped<IBasketRepositroy, BasketRepositroy>();
+builder.Services.AddScoped<IBasketRepositroy>(provider => {
+    var basketRepostory = provider.GetRequiredService<BasketRepositroy>();
+    return new CachedBasketRepository(basketRepostory, provider.GetRequiredService<IDistributedCache>());
+});
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 builder.Services.AddCarter();
