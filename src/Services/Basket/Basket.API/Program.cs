@@ -1,6 +1,4 @@
 
-using Carter;
-using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +19,9 @@ builder.Services.AddMarten(opts =>
     opts.Connection(connectionDb!);
     opts.Schema.For<ShoppingCart>().Identity(x => x.UserName);
 }).UseLightweightSessions();
+
+
+builder.Services.AddScoped<IBasketRepositroy, BasketRepositroy>();
 
 builder.Services.AddCarter();
 

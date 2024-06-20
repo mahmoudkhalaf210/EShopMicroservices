@@ -1,6 +1,5 @@
 ﻿
 
-using Basket.API.Data;
 
 namespace Basket.API.Basket.GetBasket
 {
