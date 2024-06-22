@@ -36,7 +36,7 @@ message UpdateDiscountRequest {
 
 
 message DeleteDiscountRequest {
-	CouponModel productName = 1;
+	string productName = 1;
 }
 
 
