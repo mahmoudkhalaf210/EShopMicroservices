@@ -12,6 +12,13 @@ namespace Discount.Grpc.Data
               
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Coupon>().HasData(
+                new Coupon { Id = 1 , ProductName = "iPhone X" , Description ="Iphone Discount 10 " , Amount = 100 }
+                );
+        }
+
 
     }
 

@@ -5,7 +5,7 @@
 namespace Discount.Grpc.Migrations
 {
     /// <inheritdoc />
-    public partial class intial : Migration
+    public partial class IntialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +24,11 @@ namespace Discount.Grpc.Migrations
                 {
                     table.PrimaryKey("PK_Coupons", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Coupons",
+                columns: new[] { "Id", "Amount", "Description", "ProductName" },
+                values: new object[] { 1, 100, "Iphone Discount 10 ", "iPhone X" });
         }
 
         /// <inheritdoc />

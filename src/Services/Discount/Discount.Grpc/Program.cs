@@ -1,4 +1,5 @@
 
+using Catalog.API.Data;
 using Discount.Grpc.Data;
 using Discount.Grpc.Services;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<DiscountContext>(opts => {
 });
 
 var app = builder.Build();
+
+app.UseMigration();
 
 // Configure the HTTP request pipeline.
 app.MapGrpcService<DiscountService>();
