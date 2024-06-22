@@ -19,10 +19,11 @@ namespace Basket.API.Basket.StoreBasket
     {
         public async Task<StoreBasketResult> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
         {
-            ShoppingCart cart = command.Cart;
+            // Communication With Discount.GRPC and calculate latest prices of items
 
-            await repository.StoreBasket(cart, cancellationToken);
-            return new StoreBasketResult(cart.UserName);
+
+            await repository.StoreBasket(command.Cart, cancellationToken);
+            return new StoreBasketResult(command.Cart.UserName);
         }
     }
 }
