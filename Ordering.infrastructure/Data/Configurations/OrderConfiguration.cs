@@ -123,7 +123,7 @@ namespace Ordering.infrastructure.Data.Configurations
                     .HasMaxLength(3)
                     .IsRequired();
 
-                    Paymentbuilder.Property(p => p.PaymentMethod)
+                    Paymentbuilder.Property(p => p.PaymentMethod);
 
                 });
 
