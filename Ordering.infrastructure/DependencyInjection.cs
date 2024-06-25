@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Ordering.infrastructure.Data.Interceptors;
 
 namespace Ordering.infrastructure
@@ -9,9 +10,13 @@ namespace Ordering.infrastructure
 
             var ConnectionString = configuration.GetConnectionString("Database");
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+            services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventInterceptor>();
+
+
+            services.AddDbContext<ApplicationDbContext>((sp,options) =>
             {
-                options.AddInterceptors(new AuditableEntityInterceptor());
+                options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
                 options.UseSqlServer(ConnectionString);
             });
 /*            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
