@@ -15,7 +15,7 @@ TypeAdapterConfig<CreateOrderRequest, CreateOrderCommand>.NewConfig()
 builder.Services
     .AddApplicationServices()
     .AddinfrastructureServices(builder.Configuration)
-    .AddApiServices();
+    .AddApiServices(builder.Configuration);
 
 
 var app = builder.Build();
