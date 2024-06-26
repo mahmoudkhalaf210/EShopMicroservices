@@ -14,11 +14,11 @@ namespace Ordering.API.Endpoints
             app.MapGet("/orders", async ([AsParameters] PaginatedRequest request, ISender sender) => {
 
                 var result = await sender.Send(new GetOrdersQuery(request));
-                var response = result.Adapt<GetOrderResponse>();
-                return Results.Ok(response);
+               // var response = result.Adapt<GetOrderResponse>();
+                return Results.Ok(result);
             })
                 .WithName("GetOrders")
-                .Produces<GetOrderResponse>(statusCode: 201)
+                .Produces<PaginatedResult<OrderDto>>(statusCode: 201)
                 .ProducesProblem(statusCode: 400)
                 .WithSummary("GetOrders ")
                 .WithDescription("GetOrders  Des");
