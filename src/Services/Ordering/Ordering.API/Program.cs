@@ -11,6 +11,7 @@ TypeAdapterConfig<CreateOrderRequest, CreateOrderCommand>.NewConfig()
     .Map(dest => dest.Order.orderItems, src => src.Order.orderItems)
     .PreserveReference(true);
 
+
 builder.Services
     .AddApplicationServices()
     .AddinfrastructureServices(builder.Configuration)
