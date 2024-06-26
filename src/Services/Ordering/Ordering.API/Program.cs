@@ -1,4 +1,5 @@
 using Ordering.API;
+using Ordering.API.Endpoints;
 using Ordering.Application;
 using Ordering.infrastructure;
 using Ordering.infrastructure.Extentions;
@@ -6,6 +7,9 @@ using Ordering.infrastructure.Extentions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+TypeAdapterConfig<CreateOrderRequest, CreateOrderCommand>.NewConfig()
+    .Map(dest => dest.Order.orderItems, src => src.Order.orderItems)
+    .PreserveReference(true);
 
 builder.Services
     .AddApplicationServices()

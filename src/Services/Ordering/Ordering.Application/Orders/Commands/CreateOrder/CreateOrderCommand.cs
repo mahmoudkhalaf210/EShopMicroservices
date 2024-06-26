@@ -4,7 +4,7 @@
 
 namespace Ordering.Application.Orders.Commands.CreateOrder
 {
-    public record CreateOrderCommand(OrderDto order) 
+    public record CreateOrderCommand(OrderDto Order) 
         : ICommand<CreateOrderResult>;
 
     public record CreateOrderResult(Guid Id);
@@ -13,9 +13,9 @@ namespace Ordering.Application.Orders.Commands.CreateOrder
     {
         public CreateOrderCommandValidation()
         {
-            RuleFor(o => o.order.OrderName).NotEmpty().WithMessage("Name is required");
-            RuleFor(o => o.order.CustomerId).NotNull().WithMessage("CustomerId is required");
-            RuleFor(o => o.order.orderItems).NotEmpty().WithMessage("OrderItems is required");
+            RuleFor(o => o.Order.OrderName).NotEmpty().WithMessage("Name is required");
+            RuleFor(o => o.Order.CustomerId).NotNull().WithMessage("CustomerId is required");
+            RuleFor(o => o.Order.orderItems).NotEmpty().WithMessage("OrderItems is required");
 
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Ordering.API.Endpoints
 {
-    public record CreateOrderRequest(OrderDto order);
+    public record CreateOrderRequest(OrderDto Order);
 
     public record CreateOrderResponse(Guid Id);
 
