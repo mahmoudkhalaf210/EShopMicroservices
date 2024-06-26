@@ -17,8 +17,8 @@ namespace Ordering.Application
             services.AddMediatR(config =>
             {
                 config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-              //  config.AddOpenBehavior(typeof(ValidationBehaviour<,>));
-              //  config.AddOpenBehavior(typeof(LoggingBehavior<,>));
+                config.AddOpenBehavior(typeof(ValidationBehaviour<,>));
+                config.AddOpenBehavior(typeof(LoggingBehavior<,>));
 
             });
 
