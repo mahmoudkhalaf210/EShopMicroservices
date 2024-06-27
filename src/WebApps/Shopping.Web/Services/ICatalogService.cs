@@ -1,5 +1,4 @@
-﻿using Shopping.Web.Models.Catalog;
-
+﻿
 namespace Shopping.Web.Services
 {
     public interface ICatalogService
