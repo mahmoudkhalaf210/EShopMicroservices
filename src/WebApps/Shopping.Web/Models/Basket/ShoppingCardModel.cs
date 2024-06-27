@@ -21,6 +21,12 @@
     }
 
 
+    // wrapper classes
+    public record GetBasketResponse(ShoppingCardItemModel Cart);
+    public record DeleteBasketResponse(bool IsSuccess);
+    public record StorebasketRequest(ShoppingCardItemModel Cart);
+    public record StoreBasketResponse(string UserName);
+
 
 
 }
