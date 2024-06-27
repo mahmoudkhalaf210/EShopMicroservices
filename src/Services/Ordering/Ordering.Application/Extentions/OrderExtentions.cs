@@ -18,7 +18,7 @@ namespace Ordering.Application.Extentions
                                 State: order.ShippingAddress.State,
                                 ZipCOde: order.ShippingAddress.ZipCOde
                                 ),
-                            BillingAddress: new AddressDto(
+                            BillingAddress: new AddressDto  (
                                 FirstName: order.BillingAddress.FirstName,
                                 LastName: order.BillingAddress.LastName,
                                 EmailAddress: order.BillingAddress.EmailAddress,
