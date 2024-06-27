@@ -13,7 +13,7 @@ TypeAdapterConfig<CreateOrderRequest, CreateOrderCommand>.NewConfig()
 
 
 builder.Services
-    .AddApplicationServices()
+    .AddApplicationServices(builder.Configuration)
     .AddinfrastructureServices(builder.Configuration)
     .AddApiServices(builder.Configuration);
 

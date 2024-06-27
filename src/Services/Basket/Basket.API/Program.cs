@@ -1,7 +1,7 @@
 
 
 
-using Discount.Grpc.Protos;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +46,12 @@ builder.Services.AddGrpcClient<discountProtoService.discountProtoServiceClient>(
         };
         return handler;
     });
+
+
+// async Communication Services
+builder.Services.AddMessageBroker(builder.Configuration);
+
+
 
 // Cross Cutting Services
 builder.Services.AddValidatorsFromAssembly(assembly);
