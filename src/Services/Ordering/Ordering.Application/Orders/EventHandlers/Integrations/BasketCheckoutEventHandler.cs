@@ -9,7 +9,7 @@ namespace Ordering.Application.Orders.EventHandlers.Integrations
         (ISender sender , ILogger<BasketCheckoutEventHandler> logger)
         : IConsumer<BasketCheckoutEvent>
     {
-        public async Task Consume(ConsumeContext<BasketCheckoutEvent> context)
+        public async Task Consume( ConsumeContext<BasketCheckoutEvent> context)
         {
             // create new order and start order fullfillment process
             logger.LogInformation("Integration Event Handled: {IntegrationEvent}" , context.Message.GetType().Name);

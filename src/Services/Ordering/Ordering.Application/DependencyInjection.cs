@@ -2,6 +2,7 @@
 using BuildingBlocks.Messaging.MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.FeatureManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace Ordering.Application
 
             });
 
+            services.AddFeatureManagement();
             services.AddMessageBroker(configuration , Assembly.GetExecutingAssembly());
 
             return services;
